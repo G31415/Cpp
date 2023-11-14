@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtWidgetsF</class>
+ <widget class="QWidget" name="QtWidgetsF">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>839</width>
+    <height>474</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>文件加载</string>
+  </property>
+  <widget class="QTextEdit" name="textEditStop">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>155</y>
+     <width>471</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEditLine">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>255</y>
+     <width>471</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelStop">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>160</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>站点文件</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelLine">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>257</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>线路文件</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonStop">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>155</y>
+     <width>75</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>浏览...</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonLine">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>255</y>
+     <width>75</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>浏览...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelWind">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>60</y>
+     <width>231</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>站点及线路文件加载</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonDone">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>360</y>
+     <width>75</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonQuit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>360</y>
+     <width>75</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButtonDone</sender>
+   <signal>clicked()</signal>
+   <receiver>QtWidgetsF</receiver>
+   <slot>checkFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonStop</sender>
+   <signal>clicked()</signal>
+   <receiver>QtWidgetsF</receiver>
+   <slot>inputStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonLine</sender>
+   <signal>clicked()</signal>
+   <receiver>QtWidgetsF</receiver>
+   <slot>inputLine()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonQuit</sender>
+   <signal>clicked()</signal>
+   <receiver>QtWidgetsF</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>checkFile()</slot>
+  <slot>inputStop()</slot>
+  <slot>inputLine()</slot>
+ </slots>
+</ui>

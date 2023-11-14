@@ -1,0 +1,18 @@
+﻿  Reading Qt configuration (D:/SOFT/Qt5.14.2/5.14.2/msvc2017/bin/qmake)
+  uic QtTipsDlgView.ui
+  uic QtWidgetsFL.ui
+  uic twnlt.ui
+  rcc twnlt.qrc
+  moc twnlt.h
+  moc QtWidgetsFL.h
+  moc QtTipsDlgView.h
+  logiclayer.cpp
+  QtTipsDlgView.cpp
+  QtWidgetsFL.cpp
+  twnlt.cpp
+  main.cpp
+  qrc_twnlt.cpp
+  moc_twnlt.cpp
+  moc_QtWidgetsFL.cpp
+  moc_QtTipsDlgView.cpp
+  twnlt.vcxproj -> C:\Users\maguangzhi\source\repos\twnlt\Release\twnlt.exe

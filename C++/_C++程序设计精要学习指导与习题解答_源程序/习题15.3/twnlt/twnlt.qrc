@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="twnlt">
+    <file>武汉地图.png</file>
+  </qresource>
+</RCC>
