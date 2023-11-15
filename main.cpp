@@ -1,4 +1,177 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+using namespace std;
 
+// /* 四、指出以下程序的语法错误及其原因 （每错约 1分，共 15 分） */
+// class A
+// {
+//     int a;
+
+// protected:
+//     const int &b;
+//     ~A() {}
+
+// public:
+//     int c;
+//     virtual A (*g)(int);        // 函数声明，不应有virtual
+//     A(int x) : b(x) { a = x; }; // b没有初始值
+// } x = (4, 3);                   // x初始化语句错误
+
+// class B : A
+// {
+//     int d;
+
+// public:
+//     A::b;                                     // b是引用，没有初始化
+//     friend int operator()(int) { return 2; }; // operator必须是成员函数
+//     B(int x, int y, int z) { d = x + y + z; };
+// } b(5, 6, 7);
+
+// struct C : B
+// {
+//     int z;
+
+// public:
+//     ~C(int x) { z = x; }; // 析构函数不能有参数
+// } c;
+
+// void main()
+// {
+//     int A::*p = &c.z; // 类型指针不能等于int指针
+//     int i = x.b;      // 不可访问
+//     i = x;            // 没有类型转换函数
+//     i = b.b;
+//     i = i + c.d; // 不可访问
+//     i = b.*p;
+//     i = b.*p;
+// }
+
+// /* 五、请填入学号最后一位十进制数字 ，指出 main 函数中变量 I 在每条赋值语句执行后的值 （每小题 2.5 分，共 15 分） */
+// int x = 7; // 学号最后一位十进制数
+// int y = x + 3;
+// struct A
+// {
+//     int x;
+//     static int &y;
+
+// public:
+//     operator int() const { return x + y; }
+//     int &v(int &x)
+//     {
+//         for (int y = 1; x < 301; x ^= y++)
+//         {
+//             if (x > 300)
+//             {
+//                 x -= 31;
+//                 y -= 2;
+//             }
+//             return ++x;
+//         }
+//     }
+//     A &operator++()
+//     {
+//         ++x;
+//         ++y;
+//         return *this;
+//     }
+//     A(int x = A::y + 2, int y = ::x + A::y)
+//     {
+//         A::x = x + 1;
+//         A::y = y + 2;
+//     }
+// };
+
+// int &A::y = ::y;
+
+// int main()
+// {
+//     A a(3, 4), b(a), c;
+//     int i, &j = i;
+//     int A::*p = &A::x;
+//     j = a.x;           // i = 4
+//     i = a.y;           // i = 15
+//     i = a.*p;          // i = 4
+//     i = ++a;           // i = 21
+//     i = b.y + ::y;     // i = 32
+//     (b.v(i) = 3) += 2; // i = 5
+//     return 0;
+// }
+
+// /* 六、一个 自然数，如果它等于除其本身之外的所有其它不同因子之和，则这个自然数被称为完美数 。例如，6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14。试编写如下完美数类中的所有函数成员的函数体代码（每小题 2.5 分，共15 分） */
+// class FER
+// {
+//     const int n;  // 存放自然数
+//     int *const f; // 存放所有有效因子, 所有因子之和等于 n 才是完美数
+//     int c;        // 有效因子个数 ：正数表示是完美数 ，负数表示不是
+// public:
+//     FER(int p);                   // 用自然数 p 初始化 n, f, c
+//     FER(const FER &p);            // 深拷贝构造函数
+//     FER &operator=(const FER &p); // 深拷贝赋值运算
+//     operator int() const;         // 若不是完全数则返回 0，否则返回 c
+//     int operator[](int k) const;  // 返回 k 所指示的因子, 若 k < 0 或 k >= c 返回 0
+//     ~FER();                       // 析构函数
+// };                                // 提示 : f 分配的整型内存单元数量不会超过 n / 2。
+
+// FER::FER(int p) : n(p), f(new int[p / 2])
+// {
+//     int k = 0;
+//     for (int i = 1; i <= p / 2; i++)
+//     {
+//         if (p % i == 0)
+//         {
+//             f[k] = i;
+//             k++;
+//         }
+//     }
+//     for (int i; i < k; i++)
+//     {
+//         int p;
+//         p += f[i];
+//     }
+//     if (p == n)
+//         c = k;
+//     else
+//         c = -k;
+// }
+
+// FER &FER::operator=(const FER &p)
+// {
+//     if (this != &p)
+//     {
+//         delete[] f;
+//         *(int *)&n = p.n;
+//         *(int **)&f = new int[p.n];
+//         c = p.c;
+//         for (int i = 0; i < p.n; i++)
+//         {
+//             f[i] = p.f[i];
+//         }
+//     }
+//     return *this;
+// }
+
+// FER::operator int() const
+// {
+//     return (c > 0) ? c : 0;
+// }
+
+// int FER::operator[](int k) const
+// {
+//     if (k < 0 || k >= c)
+//     {
+//         return 0;
+//     }
+//     return f[k];
+// }
+
+// FER::~FER()
+// {
+//     delete[] f;
+// }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 // struct A
 // {
@@ -45,133 +218,175 @@
 
 // /* 5.	实现下面的模板队列类： */
 // template <typename T>
-// class QUEUE {  //循环队列
-//     T *const elems;	//elemss申请内存用于存放队列的元素
-//     const int max;	//elemss申请的最大元素个数为max
-//     int head, tail;	 	//队列头head和尾tail，队空head=tail; 初始head=tail=0
+// class QUEUE
+// {                     // 循环队列
+//     int *const elems; // elemss申请内存用于存放队列的元素
+//     const int max;    // elemss申请的最大元素个数为max
+//     int head, tail;   // 队列头head和尾tail，队空head=tail; 初始head=tail=0
 // public:
-//     QUEUE(int m):elems(new T[m]),max(m),head(0),tail(0){//初始化队列：最多申请m个元素, 内存不足时抛出异常
-//         if(elems==nullptr) throw std::bad_alloc();
+//     QUEUE(int m) : elems(new int[m]), max(m), head(0), tail(0)
+//     { // 初始化队列：最多申请m个元素, 内存不足时抛出异常
+//         if (elems == nullptr)
+//             throw std::bad_alloc();
 //     }
-//     QUEUE(const QUEUE &q):elems(new T[q.max]),max(q.max),head(q.head),tail(q.tail){//用q深拷贝初始化队列, 内存不足时抛出异常
-//         if(elems==nullptr) throw std::bad_alloc();
+//     QUEUE(const QUEUE &q) : elems(new int[q.max]), max(q.max), head(q.head), tail(q.tail)
+//     { // 用q深拷贝初始化队列, 内存不足时抛出异常
+//         if (elems == nullptr)
+//             throw std::bad_alloc();
 //         std::copy(q.elems, q.elems + q.max, elems);
 //     }
-//     QUEUE(QUEUE &&q) noexcept:elems(q.elems),max(q.max),head(q.head),tail(q.tail){//用q移动初始化队列
-//         q.elems=nullptr;
+//     QUEUE(QUEUE &&q) noexcept : elems(q.elems), max(q.max), head(q.head), tail(q.tail)
+//     { // 用q移动初始化队列
+//         q.elems = nullptr;
 //     }
-//     virtual operator int( ) const noexcept{//返回队列的实际元素个数
-//         return (tail-head+max)%max;
+//     virtual operator int() const noexcept
+//     { // 返回队列的实际元素个数
+//         return (tail - head + max) % max;
 //     }
-//     virtual int size( ) const noexcept{//返回队列申请的最大元素个数max
+//     virtual int size() const noexcept
+//     { // 返回队列申请的最大元素个数max
 //         return max;
 //     }
-//     virtual QUEUE& operator<<(T e){//将e入队列尾部，并返回当前队列, 队列满时抛出异常
-//         if((tail+1)%max==head) throw std::runtime_error("Queue is full");
-//         elems[tail]=e;
-//         tail=(tail+1)%max;
+//     virtual QUEUE &operator<<(int e)
+//     { // 将e入队列尾部，并返回当前队列, 队列满时抛出异常
+//         if ((tail + 1) % max == head)
+//             throw std::runtime_error("Queue is full");
+//         elems[tail] = e;
+//         tail = (tail + 1) % max;
 //         return *this;
 //     }
-//     virtual QUEUE& operator>>(T & e){//从队首出元素到e，并返回当前队列, 队列空时抛出异常
-//         if (head == tail) throw std::runtime_error("Queue is empty");
-//         e=elems[head];
+//     virtual QUEUE &operator>>(int &e)
+//     { // 从队首出元素到e，并返回当前队列, 队列空时抛出异常
+//         if (head == tail)
+//             throw std::runtime_error("Queue is empty");
+//         e = elems[head];
 //         head = (head + 1) % max;
 //         return *this;
 //     }
-//     virtual QUEUE& operator=(const QUEUE & q){//深拷贝赋值, 内存不足时抛出异常
-//         if (this != &q) {
-//             T *new_elems = new T[q.max];
-//             if (new_elems == nullptr) {
+//     virtual QUEUE &operator=(const QUEUE &q)
+//     { // 深拷贝赋值, 内存不足时抛出异常
+//         if (this != &q)
+//         {
+//             int *new_elems = new int[q.max];
+//             if (new_elems == nullptr)
+//             {
 //                 throw std::bad_alloc();
 //             }
 //             std::copy(q.elems, q.elems + q.max, new_elems);
 //             delete[] elems;
-//             elems = new_elems;
-//             max = q.max;
+//             *(int **)&elems = new_elems;
+//             *(int *)&max = q.max;
 //             head = q.head;
 //             tail = q.tail;
 //         }
 //         return *this;
 //     }
-//     virtual QUEUE& operator=(QUEUE && q) noexcept{//移动赋值并返回被赋值队列
-//         if (this != &q) {
+//     virtual QUEUE &operator=(QUEUE &&q) noexcept
+//     { // 移动赋值并返回被赋值队列
+//         if (this != &q)
+//         {
 //             delete[] elems;
-//             elems = q.elems;
-//             max = q.max;
+//             *(int **)&elems = q.elems;
+//             *(int *)&max = q.max;
 //             head = q.head;
 //             tail = q.tail;
-//             q.elems = nullptr;
+//             *(int **)&q.elems = nullptr;
 //         }
 //         return *this;
 //     }
-//     virtual char *print(char *s) const noexcept{//打印队列至缓冲区s并返回s（元素之间用空格分开）
+//     virtual char *print(char *s) const noexcept
+//     {
 //         char *p = s;
-//         for (int i = head; i != tail; i = (i + 1) % max) {
-//             p += std::to_strlen(elems[i]).size();
-//             if (i != (tail - 1 + max) % max) {
+//         for (int i = head; i != tail; i = (i + 1) % max)
+//         {
+//             string elementString = to_string(elems[i]);
+//             const char *elementChars = elementString.c_str();
+//             int len = strlen(elementChars);
+//             memcpy(p, elementChars, len);
+//             p += len;
+//             if (i != (tail - 1 + max) % max)
+//             {
 //                 *p++ = ' ';
 //             }
 //         }
 //         *p = '\0';
 //         return s;
 //     }
-//     virtual ~QUEUE( ){//销毁当前队列
+
+//     virtual ~QUEUE()
+//     { // 销毁当前队列
 //         delete[] elems;
 //     }
 // };
 
 // /* 6.	实现下面的堆栈类：用2个队列（基对列和对象队列q）模拟一个堆栈。 */
-// template <typename T>
-// class STACK : public QUEUE<T> {
-//     QUEUE<T> q;
+
+// class STACK : public QUEUE
+// {
+//     QUEUE q;
+
 // public:
-//     STACK(int m) : QUEUE<T>(m), q(m) {} //初始化栈：最多存放2m-2个元素
-//     STACK(const STACK &s) : QUEUE<T>(s), q(s.q) {}//用栈s深拷贝初始化栈
-//     STACK(STACK &&s) noexcept : QUEUE<T>(std::move(s)), q(std::move(s.q)) {}//用栈s移动拷贝初始化栈
-//     int size() const noexcept {//返回栈的容量即2m
-//         return 2 * QUEUE<T>::size();
+//     STACK(int m) : QUEUE(m), q(m) {}                                      // 初始化栈：最多存放2m-2个元素
+//     STACK(const STACK &s) : QUEUE(s), q(s.q) {}                           // 用栈s深拷贝初始化栈
+//     STACK(STACK &&s) noexcept : QUEUE(std::move(s)), q(std::move(s.q)) {} // 用栈s移动拷贝初始化栈
+//     int size() const noexcept
+//     { // 返回栈的容量即2m
+//         return 2 * QUEUE::size();
 //     }
-//     operator int() const noexcept {//返回栈的实际元素个数
+//     operator int() const noexcept
+//     { // 返回栈的实际元素个数
 //         return static_cast<int>(*this);
 //     }
-//     STACK &operator<<(T e) {//将e入栈，并返回当前栈
-//         if (q.size() == 0) {
+//     STACK &operator<<(int e)
+//     { // 将e入栈，并返回当前栈
+//         if (q.size() == 0)
+//         {
 //             q << e;
-//             while (QUEUE<T>::operator int() > 0) {
-//                 T temp;
-//                 QUEUE<T>::operator>>(temp);
+//             while (QUEUE::operator int() > 0)
+//             {
+//                 int temp;
+//                 QUEUE::operator>>(temp);
 //                 q << temp;
 //             }
-//         } else {
-//             QUEUE<T>::operator<<(e);
+//         }
+//         else
+//         {
+//             QUEUE::operator<<(e);
 //         }
 //         return *this;
 //     }
-//     STACK &operator>>(T &e) {//出栈到e，并返回当前栈
-//         if (q.size() > 0) {
+//     STACK &operator>>(int &e)
+//     { // 出栈到e，并返回当前栈
+//         if (q.size() > 0)
+//         {
 //             q >> e;
-//         } else {
-//             QUEUE<T>::operator>>(e);
+//         }
+//         else
+//         {
+//             QUEUE::operator>>(e);
 //         }
 //         return *this;
 //     }
-//     STACK &operator=(const STACK &s) {//深拷贝赋值并返回被赋值栈
-//         QUEUE<T>::operator=(s);
+//     STACK &operator=(const STACK &s)
+//     { // 深拷贝赋值并返回被赋值栈
+//         QUEUE::operator=(s);
 //         q = s.q;
 //         return *this;
 //     }
-//     STACK &operator=(STACK &&s) noexcept {//移动赋值并返回被赋值栈
-//         QUEUE<T>::operator=(std::move(s));
+//     STACK &operator=(STACK &&s) noexcept
+//     { // 移动赋值并返回被赋值栈
+//         QUEUE::operator=(std::move(s));
 //         q = std::move(s.q);
 //         return *this;
 //     }
-//     char *print(char *s) const noexcept {//从栈底到栈顶打印栈元素到缓冲区s, 并返回s
+//     char *print(char *s) const noexcept
+//     { // 从栈底到栈顶打印栈元素到缓冲区s, 并返回s
 //         char *p = s;
-//         p = QUEUE<T>::print(p);
+//         p = QUEUE::print(p);
 //         p = q.print(p);
 //         return s;
 //     }
-//     ~STACK() noexcept {}//销毁栈
+//     ~STACK() noexcept {} // 销毁栈
 // };
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
