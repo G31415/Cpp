@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 using namespace std;
+<<<<<<< HEAD
 // /* 四、指出以下程序的语法错误及其原因 （每错约 1分，共 15 分） */
 // class A
 // {
@@ -11,6 +12,18 @@ using namespace std;
 //     const int &b;
 //     ~A() {}
 
+=======
+
+// /* 四、指出以下程序的语法错误及其原因 （每错约 1分，共 15 分） */
+// class A
+// {
+//     int a;
+
+// protected:
+//     const int &b;
+//     ~A() {}
+
+>>>>>>> dd96ad8761fd34b98e5d60fce380005224c67fcd
 // public:
 //     int c;
 //     virtual A (*g)(int);        // 函数声明，不应有virtual
